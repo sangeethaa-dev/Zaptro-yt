@@ -19,14 +19,14 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_4jli6hf",   // your service id
-        "template_z5sly3i",  // your template id
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,   // from .env
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,  // from .env
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "ekuS9Ms7eBk70zuju"   // your public key
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY    // from .env
       )
       .then(
         (response) => {
@@ -59,7 +59,7 @@ const Contact = () => {
               </p>
             </div>
             <div>
-              <p><strong>📍 Address:</strong> 123 Tech Lane, chennai, India</p>
+              <p><strong>📍 Address:</strong> 123 Tech Lane, Chennai, India</p>
               <p><strong>📧 Email:</strong> sangee@zaptro.com</p>
               <p><strong>📞 Phone:</strong> +91 98765 43210</p>
             </div>
